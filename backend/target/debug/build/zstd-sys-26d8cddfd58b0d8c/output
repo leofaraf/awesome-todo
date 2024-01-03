@@ -107,46 +107,46 @@ running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fd
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/compress/zstd_ldm.o" "-c" "zstd/lib/compress/zstd_ldm.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/compress/zstd_opt.o" "-c" "zstd/lib/compress/zstd_opt.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/compress/zstdmt_compress.o" "-c" "zstd/lib/compress/zstdmt_compress.c"
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/decompress/huf_decompress.o" "-c" "zstd/lib/decompress/huf_decompress.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/decompress/zstd_ddict.o" "-c" "zstd/lib/decompress/zstd_ddict.c"
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/decompress/zstd_decompress.o" "-c" "zstd/lib/decompress/zstd_decompress.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/decompress/zstd_decompress_block.o" "-c" "zstd/lib/decompress/zstd_decompress_block.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/dictBuilder/cover.o" "-c" "zstd/lib/dictBuilder/cover.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/dictBuilder/divsufsort.o" "-c" "zstd/lib/dictBuilder/divsufsort.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/dictBuilder/fastcover.o" "-c" "zstd/lib/dictBuilder/fastcover.c"
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/dictBuilder/zdict.o" "-c" "zstd/lib/dictBuilder/zdict.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/legacy/zstd_v01.o" "-c" "zstd/lib/legacy/zstd_v01.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/legacy/zstd_v02.o" "-c" "zstd/lib/legacy/zstd_v02.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/legacy/zstd_v03.o" "-c" "zstd/lib/legacy/zstd_v03.c"
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/legacy/zstd_v04.o" "-c" "zstd/lib/legacy/zstd_v04.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/legacy/zstd_v05.o" "-c" "zstd/lib/legacy/zstd_v05.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/legacy/zstd_v06.o" "-c" "zstd/lib/legacy/zstd_v06.c"
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
-exit status: 0
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/legacy/zstd_v07.o" "-c" "zstd/lib/legacy/zstd_v07.c"
 running: env -u IPHONEOS_DEPLOYMENT_TARGET "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "zstd/lib/" "-I" "zstd/lib/common" "-I" "zstd/lib/legacy" "-fvisibility=hidden" "-ffunction-sections" "-fdata-sections" "-fmerge-all-constants" "-DZSTD_LIB_DEPRECATED=0" "-DXXH_PRIVATE_API=" "-DZSTDLIB_VISIBILITY=" "-DZDICTLIB_VISIBILITY=" "-DZSTDERRORLIB_VISIBILITY=" "-DZSTD_LEGACY_SUPPORT=1" "-o" "/Users/leonfarafonov/Projects/Public/awesome-todo/backend/target/debug/build/zstd-sys-26d8cddfd58b0d8c/out/zstd/lib/decompress/huf_decompress_amd64.o" "-c" "zstd/lib/decompress/huf_decompress_amd64.S"
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
 exit status: 0
 exit status: 0
 exit status: 0
