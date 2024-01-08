@@ -1,35 +1,68 @@
-use actix_web::{middleware, web, App, Error, HttpRequest, HttpResponse, HttpServer};
+use std::{time::SystemTime, env};
+
+use actix_web::{middleware::{self, Logger}, web, App, Error, HttpRequest, HttpResponse, HttpServer, post, get, dev::{ServiceRequest, Service}};
+use diesel::{prelude::*, associations::HasTable};
+use futures_util::FutureExt;
 use log::info;
-use serde::{Deserialize, Serialize};
+use crate::postgres::PostgresPool;
 
-#[derive(Debug, Serialize, Deserialize)]
-struct MyObj {
-    name: String,
-    number: i32,
+use self::models::*;
+
+mod models;
+mod schema;
+mod postgres;
+
+fn establish_connection() -> PgConnection {
+    let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
+    PgConnection::establish(&database_url)
+        .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
 }
 
-/// This handler uses json extractor
-async fn index() -> HttpResponse {
-    let obj  = MyObj {
-        name: "Some name".into(),
-        number: 0
+fn is_authorized(cookie_value: &str) -> bool {
+    // Authorization logic here
+    true
+}
+
+#[get("/api/users")] 
+async fn users(
+    pool: web::Data<PostgresPool>,
+) -> HttpResponse {
+    use self::schema::users::dsl::*;
+
+    let result = web::block(move || {
+        let mut connection = pool.get().expect("couldn't get db connection from pool");
+
+        users
+            .limit(5)
+            .select(User::as_select())
+            .load(&mut connection)
+            .expect("Error loading posts")
+    }).await.unwrap();
+
+    info!("returning");
+    HttpResponse::Ok().json(result)
+}
+
+#[post("/api/user")] 
+async fn post() -> HttpResponse {
+    let connection = &mut establish_connection();
+    use self::schema::users::dsl::*;
+
+    let new_user = NewUser {
+        username: "".into(),
+        email: "".into(),
+        first_name: "".into(),
+        second_name: "".into(),
+        pwhash: "".into()
     };
-    HttpResponse::Ok().json(obj) // <- send response
-}
 
-/// This handler uses json extractor with limit
-async fn extract_item(item: web::Json<MyObj>, req: HttpRequest) -> HttpResponse {
-    println!("request: {req:?}");
-    println!("model: {item:?}");
+    let user = diesel::insert_into(users::table())
+        .values(&new_user)
+        .returning(User::as_returning())
+        .get_result(connection)
+        .expect("Error saving new post");
 
-    HttpResponse::Ok().json(item.0) // <- send json response
-}
-
-/// This handler manually load request payload and parse json object
-async fn index_manual(body: web::Bytes) -> Result<HttpResponse, Error> {
-    // body is loaded, now we can deserialize serde-json
-    let obj = serde_json::from_slice::<MyObj>(&body)?;
-    Ok(HttpResponse::Ok().json(obj)) // <- send response
+    HttpResponse::Ok().json(user)
 }
 
 #[actix_web::main]
@@ -38,49 +71,18 @@ async fn main() -> std::io::Result<()> {
 
     info!("starting HTTP server at http://localhost:8080");
 
-    HttpServer::new(|| {
-        App::new()
-            // enable logger
-            .wrap(middleware::Logger::default())
-            .app_data(web::JsonConfig::default().limit(4096)) // <- limit size of the payload (global configuration)
-            .service(web::resource("/extractor").route(web::post().to(index)))
-            .service(
-                web::resource("/extractor2")
-                    .app_data(web::JsonConfig::default().limit(1024)) // <- limit size of the payload (resource level)
-                    .route(web::post().to(extract_item)),
-            )
-            .service(web::resource("/manual").route(web::post().to(index_manual)))
-            .service(web::resource("/").route(web::get().to(index)))
-    })
-    .bind(("127.0.0.1", 8080))?
-    .run()
-    .await
-}
-
-#[cfg(test)]
-mod tests {
-    use actix_web::{body::to_bytes, dev::Service, http, test, web, App};
-
-    use super::*;
-
-    #[actix_web::test]
-    async fn test_index() {
-        let app =
-            test::init_service(App::new().service(web::resource("/").route(web::post().to(index))))
-                .await;
-
-        let req = test::TestRequest::post()
-            .uri("/")
-            .set_json(MyObj {
-                name: "my-name".to_owned(),
-                number: 43,
-            })
-            .to_request();
-        let resp = app.call(req).await.unwrap();
-
-        assert_eq!(resp.status(), http::StatusCode::OK);
-
-        let body_bytes = to_bytes(resp.into_body()).await.unwrap();
-        assert_eq!(body_bytes, r#"{"name":"my-name","number":43}"#);
-    }
+    let pool = postgres::get_pool();
+    HttpServer::new(move || App::new()
+        .app_data(web::Data::new(pool.clone()))
+        .wrap(Logger::new("%a %{User-Agent}i"))
+        .wrap_fn(|req, srv| {
+            println!("Hi from start. You requested: {}", req.path());
+            srv.call(req)
+        })
+        .service(users)
+        .service(post)
+    )
+        .bind(("0.0.0.0", 8080))?
+        .run()
+        .await
 }
