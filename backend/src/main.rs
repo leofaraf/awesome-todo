@@ -1,6 +1,6 @@
 use std::{time::SystemTime, env};
 
-use actix_web::{middleware::{self, Logger}, web, App, Error, HttpRequest, HttpResponse, HttpServer, post, get, dev::{ServiceRequest, Service}};
+use actix_web::{middleware::{self, Logger}, web::{self, Json}, App, Error, HttpRequest, HttpResponse, HttpServer, post, get, dev::{ServiceRequest, Service}};
 use diesel::{prelude::*, associations::HasTable};
 use futures_util::FutureExt;
 use log::info;
@@ -11,17 +11,7 @@ use self::models::*;
 mod models;
 mod schema;
 mod postgres;
-
-fn establish_connection() -> PgConnection {
-    let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-    PgConnection::establish(&database_url)
-        .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
-}
-
-fn is_authorized(cookie_value: &str) -> bool {
-    // Authorization logic here
-    true
-}
+mod hasher;
 
 #[get("/api/users")] 
 async fn users(
@@ -30,7 +20,8 @@ async fn users(
     use self::schema::users::dsl::*;
 
     let result = web::block(move || {
-        let mut connection = pool.get().expect("couldn't get db connection from pool");
+        let mut connection = pool.get()
+            .expect("couldn't get db connection from pool");
 
         users
             .limit(5)
@@ -43,26 +34,31 @@ async fn users(
     HttpResponse::Ok().json(result)
 }
 
-#[post("/api/user")] 
-async fn post() -> HttpResponse {
-    let connection = &mut establish_connection();
+#[post("/api/registration")] 
+async fn registration(
+    payload: Json<NewUserRequest>,
+    pool: web::Data<PostgresPool>,
+) -> HttpResponse {
     use self::schema::users::dsl::*;
 
-    let new_user = NewUser {
-        username: "".into(),
-        email: "".into(),
-        first_name: "".into(),
-        second_name: "".into(),
-        pwhash: "".into()
-    };
+    web::block(move || {
+        let mut connection = pool.get()
+            .expect("couldn't get db connection from pool");
+        let new_user = NewUser { 
+            username: payload.username.to_owned(),
+            email: payload.email.to_owned(),
+            first_name: payload.first_name.to_owned(),
+            second_name: payload.second_name.to_owned(),
+            pwhash: hasher::hash(payload.password.to_owned())
+        };
 
-    let user = diesel::insert_into(users::table())
-        .values(&new_user)
-        .returning(User::as_returning())
-        .get_result(connection)
-        .expect("Error saving new post");
+        diesel::insert_into(users)
+            .values(new_user)
+            .execute(&mut connection)
+            .expect("Error inserting post: {}", )
+    }).await.unwrap();
 
-    HttpResponse::Ok().json(user)
+    HttpResponse::Ok().finish()
 }
 
 #[actix_web::main]
@@ -80,7 +76,7 @@ async fn main() -> std::io::Result<()> {
             srv.call(req)
         })
         .service(users)
-        .service(post)
+        .service(registration)
     )
         .bind(("0.0.0.0", 8080))?
         .run()
