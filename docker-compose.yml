@@ -19,6 +19,9 @@ services:
     image: backend
     environment:
       DATABASE_URL: postgres://leo:qwertyuiop123A@db/inst
+      SMTP_RELAY: smtp-relay.gmail.com
+      SMTP_USERNAME: leofaraf@gmail.com
+      SMTP_PASSWORD: "ifub vzzk srih dwbc"
     depends_on:
       - db
 
