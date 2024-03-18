@@ -8,13 +8,17 @@ import {
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
 import { Menu } from "lucide-react";
+import { useContext } from "react";
+import { AuthContext } from "./auth-provider";
 
 export default function LandingMenu() {
+    const authContext = useContext(AuthContext)
+
     return (
         <FlexibleContainer is_fixed={true}>
             <Navigation />
             <div className="flex gap-3">
-                <Button variant="outline">
+                <Button variant="outline" onClick={() => authContext.authModal.toogleActive()}>
                     Dashboard
                 </Button>
                 <ModeToggle />
