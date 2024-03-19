@@ -56,11 +56,8 @@ export default function AuthForm() {
                         <FormItem>
                         <FormLabel>Email</FormLabel>
                         <FormControl>
-                            <Input placeholder="shadcn" {...field} />
+                            <Input {...field} />
                         </FormControl>
-                        <FormDescription>
-                            This is your public display name.
-                        </FormDescription>
                         <FormMessage />
                         </FormItem>
                     )}
@@ -72,11 +69,8 @@ export default function AuthForm() {
                         <FormItem>
                         <FormLabel>Password</FormLabel>
                         <FormControl>
-                            <Input placeholder="shadcn" {...field} />
+                            <Input {...field} />
                         </FormControl>
-                        <FormDescription>
-                            This is your public display name.
-                        </FormDescription>
                         <FormMessage />
                         </FormItem>
                     )}
